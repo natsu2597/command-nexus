@@ -1,0 +1,6 @@
+<Solution>
+  <Folder Name="/CommandNexus.Platform/" />
+  <Folder Name="/CommandNexus.Platform/src/">
+    <Project Path="CommandNexus.Platform/src/CommandNexus.Platform.Service/CommandNexus.Platform.Service.csproj" />
+  </Folder>
+</Solution>
