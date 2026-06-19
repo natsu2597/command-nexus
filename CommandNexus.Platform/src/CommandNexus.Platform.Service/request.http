@@ -1,0 +1,21 @@
+# For more info on HTTP files go to https://aka.ms/vs/httpfile
+@CommandNexus.ApiHostAddress = http://localhost:5219
+# GET ALL PLATFORMS
+GET {{CommandNexus.ApiHostAddress}}/api/platform
+
+###
+# GET PLATFORM BY ID
+
+GET {{CommandNexus.ApiHostAddress}}/api/platform/cc8045c5-c403-4478-bc21-e7e006a66193
+Content-Type: application/json
+
+
+###
+POST {{CommandNexus.ApiHostAddress}}/api/platform
+Content-Type: application/json
+
+{
+  "name": "ASP.NET Core",
+  "publisher" : "Microsoft",
+  "cost" : "Open Source"
+}

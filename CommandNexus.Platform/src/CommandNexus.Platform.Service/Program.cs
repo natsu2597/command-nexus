@@ -13,6 +13,10 @@ builder.Services.AddScoped<IPlatformRepo, PlatformRepo>();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 
 
+builder.Services.AddEndpointsApiExplorer();
+builder.Services.AddControllers();
+
+
 var app = builder.Build();
 
 PrepDB.PrepPopulation(app);
@@ -23,6 +27,7 @@ if (app.Environment.IsDevelopment())
     app.MapOpenApi();
 }
 
+app.MapControllers();
 app.UseHttpsRedirection();
 
 

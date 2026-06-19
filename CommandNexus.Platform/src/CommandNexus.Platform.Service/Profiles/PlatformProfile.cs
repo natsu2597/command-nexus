@@ -8,7 +8,7 @@ namespace CommandNexus.Platform.Service.Profiles
     {
         public PlatformProfile()
         {
-            CreateMap<PlatformModel, PlatformCreatedDto>();
+            CreateMap<PlatformModel, PlatformReadDto>();
             CreateMap<PlatformCreatedDto, PlatformModel>();
         }
     }
