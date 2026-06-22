@@ -1,0 +1,17 @@
+apiVersion:  apps/v1
+kind: Deployment
+metadata:
+  name: platforms-depl  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: command-nexus-platform-service
+  template:
+    metadata:
+      labels:
+        app: command-nexus-platform-service
+    spec:
+      containers:
+        - name: command-nexus-platform-service
+          image: natsu2597/commandnexus-platform:latest

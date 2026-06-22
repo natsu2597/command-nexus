@@ -1,0 +1,13 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: command-nexus-platformnpservice-srv
+spec:
+  type: NodePort
+  selector:
+    app: command-nexus-platform-service
+  ports:
+    - name: command-nexus-platform-service
+      protocol: TCP
+      port: 8080
+      targetPort: 8080
