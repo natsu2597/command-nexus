@@ -1,12 +1,12 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
-@CommandNexus.ApiHostAddress = http://localhost:8080
+@CommandNexus.ApiHostAddress = http://localhost:5219
 # GET ALL PLATFORMS
 GET {{CommandNexus.ApiHostAddress}}/api/platform
 
 ###
 # GET PLATFORM BY ID
 
-GET {{CommandNexus.ApiHostAddress}}/api/platform/cc8045c5-c403-4478-bc21-e7e006a66193
+GET {{CommandNexus.ApiHostAddress}}/api/platform/815ce32b-2128-4857-9579-4ad3d57cb561
 Content-Type: application/json
 
 

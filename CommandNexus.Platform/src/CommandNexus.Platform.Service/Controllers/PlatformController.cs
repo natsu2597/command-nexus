@@ -13,11 +13,11 @@ namespace CommandNexus.Platform.Service.Controllers
     public class PlatformController : ControllerBase
     {
 
-        private readonly IPlatformRepo _repository;
+        private readonly IRepository<PlatformModel> _repository;
         private readonly IMapper _mapper;
 
         
-        public PlatformController(IPlatformRepo repository, IMapper mapper)
+        public PlatformController(IRepository<PlatformModel> repository, IMapper mapper)
         {
             _repository = repository;
             _mapper = mapper;
@@ -27,7 +27,7 @@ namespace CommandNexus.Platform.Service.Controllers
         public ActionResult<IEnumerable<PlatformReadDto>> GetPlatforms()
         {
             Console.WriteLine("Reading Platforms....");
-            var platformItems = _repository.GetAllPlatforms();
+            var platformItems = _repository.GetAll();
 
             return Ok(_mapper.Map<IEnumerable<PlatformReadDto>>(platformItems));
         }
@@ -35,7 +35,7 @@ namespace CommandNexus.Platform.Service.Controllers
         [HttpGet("{id}", Name = "GetPlatform")]
         public ActionResult<PlatformReadDto> GetPlatform(Guid id)
         {
-            var platformItem = _repository.GetPlatformById(id);
+            var platformItem = _repository.GetById(id);
 
             if(platformItem != null)
             {
@@ -49,7 +49,7 @@ namespace CommandNexus.Platform.Service.Controllers
         public ActionResult<PlatformReadDto> CreatePlatform(PlatformCreatedDto dto)
         {
             var platform = _mapper.Map<PlatformModel>(dto);
-            _repository.CreatePlatform(platform);
+            _repository.Create(platform);
             _repository.SaveChanges();
 
             var platformReadDto = _mapper.Map<PlatformReadDto>(platform);

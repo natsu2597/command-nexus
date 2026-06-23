@@ -1,10 +1,10 @@
 <Solution>
+  <Folder Name="/CommandNexus.Command/" />
+  <Folder Name="/CommandNexus.Command/src/">
+    <Project Path="CommandNexus.Command/src/CommandNexus.Command.Service/CommandNexus.Command.Service.csproj" />
+  </Folder>
   <Folder Name="/CommandNexus.Platform/" />
   <Folder Name="/CommandNexus.Platform/src/">
     <Project Path="CommandNexus.Platform/src/CommandNexus.Platform.Service/CommandNexus.Platform.Service.csproj" />
-  </Folder>
-  <Folder Name="/K8S/">
-    <File Path="platforms-depl.yaml" />
-    <File Path="platforms-np-srv.yaml" />
   </Folder>
 </Solution>

@@ -2,7 +2,7 @@
 
 namespace CommandNexus.Platform.Service.Models
 {
-    public class PlatformModel
+    public class PlatformModel : IModel
     {
         [Key]
         [Required]
