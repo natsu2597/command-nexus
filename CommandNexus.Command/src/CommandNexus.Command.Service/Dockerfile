@@ -4,13 +4,13 @@ WORKDIR /src
 
 COPY CommandNexus.Common/src/CommandNexus.Common/CommandNexus.Common.csproj CommandNexus.Common/src/CommandNexus.Common/
 
-COPY CommandNexus.Platform/src/CommandNexus.Platform.Service/CommandNexus.Platform.Service.csproj CommandNexus.Platform/src/CommandNexus.Platform.Service/
+COPY CommandNexus.Command/src/CommandNexus.Command.Service/CommandNexus.Command.Service.csproj CommandNexus.Command/src/CommandNexus.Command.Service/
 
-RUN dotnet restore CommandNexus.Platform/src/CommandNexus.Platform.Service/CommandNexus.Platform.Service.csproj
+RUN dotnet restore CommandNexus.Command/src/CommandNexus.Command.Service/CommandNexus.Command.Service.csproj
 
 COPY . .
 
-WORKDIR /src/CommandNexus.Platform/src/CommandNexus.Platform.Service
+WORKDIR /src/CommandNexus.Command/src/CommandNexus.Command.Service
 
 RUN dotnet publish -c Release -o /app/out
 
@@ -22,4 +22,4 @@ COPY --from=build-env /app/out .
 
 EXPOSE 8080
 
-ENTRYPOINT ["dotnet", "CommandNexus.Platform.Service.dll"]
+ENTRYPOINT ["dotnet", "CommandNexus.Command.Service.dll"]
