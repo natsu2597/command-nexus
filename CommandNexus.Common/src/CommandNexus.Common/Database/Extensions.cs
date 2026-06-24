@@ -1,13 +1,12 @@
 ﻿using Microsoft.EntityFrameworkCore;
-
-namespace CommandNexus.Platform.Service.Data
+using Microsoft.Extensions.DependencyInjection;
+namespace CommandNexus.Common.Database
 {
     public static class Extensions
     {
-        public static IServiceCollection AddDb(this IServiceCollection services)
+        public static IServiceCollection AddDb<TContext>(this IServiceCollection services) where TContext : DbContext
         {
-            services.AddDbContext<AppDBContext>(opt =>
-                                opt.UseInMemoryDatabase("InMem"));
+            services.AddScoped<DbContext, TContext>();
             services.AddScoped(typeof(IRepository<>),
                                        typeof(CommandNexusRepo<>));
 

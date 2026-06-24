@@ -1,4 +1,4 @@
-﻿namespace CommandNexus.Platform.Service.Models
+﻿namespace CommandNexus.Common
 {
     public interface IModel
     {

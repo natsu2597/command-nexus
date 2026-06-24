@@ -1,10 +1,8 @@
 ﻿using AutoMapper;
-using CommandNexus.Platform.Service.Data;
 using CommandNexus.Platform.Service.Dtos;
 using CommandNexus.Platform.Service.Models;
-using Microsoft.AspNetCore.Http.HttpResults;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.JSInterop.Infrastructure;
+using CommandNexus.Common;
 
 namespace CommandNexus.Platform.Service.Controllers
 {

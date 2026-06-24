@@ -1,14 +1,14 @@
-﻿using CommandNexus.Platform.Service.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace CommandNexus.Platform.Service.Data
+namespace CommandNexus.Common.Database
 {
-    public class CommandNexusRepo<T> : IRepository<T> where T :class, IModel
+    public class CommandNexusRepo<T> : IRepository<T>
+        where T :class, IModel
     {
-        private readonly AppDBContext _context;
+        private readonly DbContext _context;
         private readonly DbSet<T> _dbSet;
 
-        public CommandNexusRepo(AppDBContext context)
+        public CommandNexusRepo(DbContext context)
         {
             _context = context;
             _dbSet = context.Set<T>();

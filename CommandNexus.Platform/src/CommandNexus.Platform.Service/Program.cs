@@ -1,5 +1,5 @@
+using CommandNexus.Common.Database;
 using CommandNexus.Platform.Service.Data;
-using CommandNexus.Platform.Service.Models;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -10,7 +10,10 @@ builder.Services.AddOpenApi();
 builder.Services.AddAutoMapper(AppDomain.CurrentDomain.GetAssemblies());
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddControllers();
-builder.Services.AddDb();
+builder.Services.AddDbContext<AppDBContext>(opt =>
+                                opt.UseInMemoryDatabase("InMem"));
+builder.Services.AddDb<AppDBContext>();
+
 
 var app = builder.Build();
 

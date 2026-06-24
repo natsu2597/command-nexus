@@ -1,6 +1,5 @@
-﻿using CommandNexus.Platform.Service.Models;
-
-namespace CommandNexus.Platform.Service.Data
+﻿
+namespace CommandNexus.Common
 {
     public interface IRepository<T> where T : IModel
     {

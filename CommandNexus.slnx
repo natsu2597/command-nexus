@@ -3,6 +3,10 @@
   <Folder Name="/CommandNexus.Command/src/">
     <Project Path="CommandNexus.Command/src/CommandNexus.Command.Service/CommandNexus.Command.Service.csproj" />
   </Folder>
+  <Folder Name="/CommandNexus.Common/" />
+  <Folder Name="/CommandNexus.Common/src/">
+    <Project Path="CommandNexus.Common/src/CommandNexus.Common/CommandNexus.Common.csproj" />
+  </Folder>
   <Folder Name="/CommandNexus.Platform/" />
   <Folder Name="/CommandNexus.Platform/src/">
     <Project Path="CommandNexus.Platform/src/CommandNexus.Platform.Service/CommandNexus.Platform.Service.csproj" />

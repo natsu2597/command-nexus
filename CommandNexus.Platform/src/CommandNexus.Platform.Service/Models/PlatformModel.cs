@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using CommandNexus.Common;
 
 namespace CommandNexus.Platform.Service.Models
 {
