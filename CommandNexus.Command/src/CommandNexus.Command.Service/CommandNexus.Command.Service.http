@@ -1,4 +1,4 @@
-@CommandNexus.Command.Service_HostAddress = http://localhost:5136
+@CommandNexus.Command.Service_HostAddress = http://localhost:8080
 
 POST {{CommandNexus.Command.Service_HostAddress}}/api/c/platform
 Accept: application/json
