@@ -1,5 +1,5 @@
 # For more info on HTTP files go to https://aka.ms/vs/httpfile
-@CommandNexus.ApiHostAddress = http://localhost:8080
+@CommandNexus.ApiHostAddress = http://localhost:5219
 # GET ALL PLATFORMS
 GET {{CommandNexus.ApiHostAddress}}/api/platform
 

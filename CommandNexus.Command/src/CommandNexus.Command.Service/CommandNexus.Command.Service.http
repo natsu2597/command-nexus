@@ -1,6 +1,6 @@
 @CommandNexus.Command.Service_HostAddress = http://localhost:5136
 
-GET {{CommandNexus.Command.Service_HostAddress}}/weatherforecast/
+POST {{CommandNexus.Command.Service_HostAddress}}/api/c/platform
 Accept: application/json
 
 ###

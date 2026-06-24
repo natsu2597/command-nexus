@@ -3,6 +3,7 @@ using CommandNexus.Platform.Service.Dtos;
 using CommandNexus.Platform.Service.Models;
 using Microsoft.AspNetCore.Mvc;
 using CommandNexus.Common;
+using CommandNexus.Platform.Service.SyncDataServices.Http;
 
 namespace CommandNexus.Platform.Service.Controllers
 {
@@ -10,13 +11,14 @@ namespace CommandNexus.Platform.Service.Controllers
     [Route("/api/[controller]")]
     public class PlatformController : ControllerBase
     {
-
+        private readonly ICommandDataClient _commandClient;
         private readonly IRepository<PlatformModel> _repository;
         private readonly IMapper _mapper;
 
         
-        public PlatformController(IRepository<PlatformModel> repository, IMapper mapper)
+        public PlatformController(IRepository<PlatformModel> repository, IMapper mapper,ICommandDataClient commandClient)
         {
+            _commandClient = commandClient;
             _repository = repository;
             _mapper = mapper;
         }
@@ -44,13 +46,23 @@ namespace CommandNexus.Platform.Service.Controllers
         }
 
         [HttpPost]
-        public ActionResult<PlatformReadDto> CreatePlatform(PlatformCreatedDto dto)
+        public async Task<ActionResult<PlatformReadDto>> CreatePlatform(PlatformCreatedDto dto)
         {
             var platform = _mapper.Map<PlatformModel>(dto);
             _repository.Create(platform);
             _repository.SaveChanges();
 
             var platformReadDto = _mapper.Map<PlatformReadDto>(platform);
+
+            try
+            {
+                await _commandClient.SendPlatformToCommand(platformReadDto);
+            }
+
+            catch(Exception e)
+            {
+                Console.WriteLine($"Could not send data synchronously: {e.Message}");
+            }
 
             return CreatedAtRoute(nameof(GetPlatform), new { platformReadDto.Id }, platformReadDto);
         }
