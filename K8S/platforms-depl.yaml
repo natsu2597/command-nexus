@@ -15,3 +15,17 @@ spec:
       containers:
         - name: command-nexus-platform-service
           image: natsu2597/commandnexus-platform:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: platforms-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: command-nexus-platform-service
+  ports:
+  - name: command-nexus-platform-service
+    protocol: TCP
+    port: 8080
+    targetPort: 8080

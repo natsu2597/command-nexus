@@ -1,0 +1,31 @@
+apiVersion:  apps/v1
+kind: Deployment
+metadata:
+  name: commands-depl  
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: command-nexus-command-service
+  template:
+    metadata:
+      labels:
+        app: command-nexus-command-service
+    spec:
+      containers:
+        - name: command-nexus-command-service
+          image: natsu2597/commandnexus-command:latest
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: commands-clusterip-srv
+spec:
+  type: ClusterIP
+  selector:
+    app: command-nexus-command-service
+  ports:
+  - name: command-nexus-command-service
+    protocol: TCP
+    port: 8080
+    targetPort: 8080
